@@ -112,15 +112,14 @@ def game_hash
   }
 end
 
-def num_points_scored(chosen_player)
-  game_hash.each do |score, team|
-    team.each do |scored, chart|
-      next unless scored == :players
-      chart.each do |player|
-        return player[:points] if player[:player_name] == chosen_player
-      end
-    end
+def find_player(chosen_player)
+  players.find do |player|
+    player[:name] == chosen_player
   end
+end
+
+def num_points_scored(chosen_player)
+  find_player(chosen_player)[:points]
 end
 
 def shoe_size(chosen_player)
