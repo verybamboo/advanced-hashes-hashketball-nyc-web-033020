@@ -115,7 +115,8 @@ end
 def players
   game_hash.map do |key, value|
     value[:players]
-end.flatten
+  end.flatten
+end
 
 def find_player(chosen_player)
   players.find do |player|
